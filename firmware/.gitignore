@@ -1,0 +1,10 @@
+.pio
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+main_eventmesh.cpp
+converted_model_float32.tflite
+converted_model_int8_v2_1.tflite
+converted_model_int8_v2_2.tflite
+converted_model_v20_1.tflite
