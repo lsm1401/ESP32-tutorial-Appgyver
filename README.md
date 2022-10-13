@@ -8,3 +8,8 @@ This is adjustment tutorial of ESP32-tutorial and updates as follows:
 - send_data with "LAST_UPDATED", "RESULT" and "IS_READ"
 ## .pio/libdeps/esp32dev/NTPClient  
 - NTPClient.cpp and NTPClient.h
+
+## Reference 
+- https://github.com/arduino-libraries/NTPClient/blob/master/NTPClient.h
+- https://github.com/taranais/NTPClient/blob/master/NTPClient.cpp  (for getFormattedDate)
+- https://randomnerdtutorials.com/esp32-ntp-client-date-time-arduino-ide/
