@@ -55,18 +55,19 @@ bool capture_image();
 NeuralNetwork *nn;
 
 //Send data 
+ //UPDATE--for Appgyver tutorial
 // Reference  - https://statics.teams.cdn.office.net/evergreen-assets/safelinks/1/atp-safelinks.html
 void send_data(String object_detected, float probability, String device){
   HTTPClient http;
   StaticJsonDocument<256> doc;
   JsonObject root = doc.to<JsonObject>();
-  // root["TEAM_NAME"] = device;                  //UPDATE--for Appgyver tutorial
-  root["LAST_UPDATED"] = formattedDate;           //UPDATE--for Appgyver tutorial
-  root["RESULT"] = object_detected;               //UPDATE--for Appgyver tutorial
-  root["IS_READ"] = false;                        //UPDATE--for Appgyver tutorial
-  // root["object_detected"] = object_detected;   //UPDATE--for Appgyver tutorial
-  // root["probability"] = probability;           //UPDATE--for Appgyver tutorial
-  // root["device"] = device;                     //UPDATE--for Appgyver tutorial
+  // root["TEAM_NAME"] = device;                  
+  root["LAST_UPDATED"] = formattedDate;           
+  root["RESULT"] = object_detected;               
+  root["IS_READ"] = false;                        
+  // root["object_detected"] = object_detected;   
+  // root["probability"] = probability;           
+  // root["device"] = device;                     
   
 
   serializeJsonPretty(root, Serial);
@@ -75,14 +76,17 @@ void send_data(String object_detected, float probability, String device){
 
   http.begin(eventmeshEndpoint);
   http.addHeader("Content-Type", "application/json");
-  http.addHeader("Host","kaistdevicecap-sap-trainer03-sumin.fe56704.kyma.ondemand.com");
+  // http.addHeader("Host","kaistdevicecap-sap-trainer03-sumin.fe56704.kyma.ondemand.com");
+  http.addHeader("Host","kaistcpapp-kaist-bridge.fe56704.kyma.ondemand.com");
 
-  // int httpResponseCode = http.POST(json);      //UPDATE--for Appgyver tutorial
-  int httpResponseCode = http.PUT(json);          //UPDATE--for Appgyver tutorial
+  
+  // int httpResponseCode = http.POST(json);      
+  int httpResponseCode = http.PUT(json);         
 
   Serial.println(httpResponseCode); 
   
 }
+ //UPDATE--for Appgyver tutorial
 
 
 void setup() {
