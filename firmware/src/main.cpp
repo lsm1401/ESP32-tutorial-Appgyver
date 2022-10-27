@@ -7,12 +7,12 @@ KAIST Tutorial for ESP32
 #include <HTTPClient.h> // #include "WiFi.h"//dependency of HTTPClient.h
 #include "ArduinoJson.h"
 
-#include <NTPClient.h>
-#include <WiFiUdp.h>
+#include <NTPClient.h>                        //UPDATE--for Appgyver tutorial
+#include <WiFiUdp.h>                          //UPDATE--for Appgyver tutorial
 
 // Define NTP Client to get time
-WiFiUDP ntpUDP; // UDP client
-NTPClient timeClient(ntpUDP); // NTP client
+WiFiUDP ntpUDP; // UDP client                 //UPDATE--for Appgyver tutorial
+NTPClient timeClient(ntpUDP); // NTP client   //UPDATE--for Appgyver tutorial
 
 //Select Camera model 
 #define CAMERA_MODEL_ESP_EYE
@@ -26,10 +26,10 @@ const char* ssid = "TP-Link_29F3"; //Update Wifi Network ID
 const char* password = "93374262"; //Update Wifi Password
 
 //Your Domain name with URL path or IP address with path
-// const char* eventmeshEndpoint = "https://kaistdevicecap-sap-trainer03-sumin.fe56704.kyma.ondemand.com/service/kaistdevice/Objectdetection"; 
+// const char* eventmeshEndpoint = "https://kaistdevicecap-sap-trainer03-sumin.fe56704.kyma.ondemand.com/service/kaistdevice/Objectdetection";                    //UPDATE--for Appgyver tutorial
 
 // Messaging for AppGyver
-const char* eventmeshEndpoint = "https://kaistcpapp-kaist-bridge.fe56704.kyma.ondemand.com/service/kaistbridgecatalog/KAIST_BRIDGE/TEAM_2"; //update team's URL 
+const char* eventmeshEndpoint = "https://kaistcpapp-kaist-bridge.fe56704.kyma.ondemand.com/service/kaistbridgecatalog/KAIST_BRIDGE/TEAM_2"; //update team's URL: //UPDATE--for Appgyver tutorial
 
 
 // Define Framesize
@@ -60,13 +60,13 @@ void send_data(String object_detected, float probability, String device){
   HTTPClient http;
   StaticJsonDocument<256> doc;
   JsonObject root = doc.to<JsonObject>();
-  // root["TEAM_NAME"] = device; 
-  root["LAST_UPDATED"] = formattedDate; 
-  root["RESULT"] = object_detected; 
-  root["IS_READ"] = false; 
-  // root["object_detected"] = object_detected;
-  // root["probability"] = probability;
-  // root["device"] = device; 
+  // root["TEAM_NAME"] = device;                  //UPDATE--for Appgyver tutorial
+  root["LAST_UPDATED"] = formattedDate;           //UPDATE--for Appgyver tutorial
+  root["RESULT"] = object_detected;               //UPDATE--for Appgyver tutorial
+  root["IS_READ"] = false;                        //UPDATE--for Appgyver tutorial
+  // root["object_detected"] = object_detected;   //UPDATE--for Appgyver tutorial
+  // root["probability"] = probability;           //UPDATE--for Appgyver tutorial
+  // root["device"] = device;                     //UPDATE--for Appgyver tutorial
   
 
   serializeJsonPretty(root, Serial);
@@ -77,8 +77,8 @@ void send_data(String object_detected, float probability, String device){
   http.addHeader("Content-Type", "application/json");
   http.addHeader("Host","kaistdevicecap-sap-trainer03-sumin.fe56704.kyma.ondemand.com");
 
-  // int httpResponseCode = http.POST(json);
-  int httpResponseCode = http.PUT(json);
+  // int httpResponseCode = http.POST(json);      //UPDATE--for Appgyver tutorial
+  int httpResponseCode = http.PUT(json);          //UPDATE--for Appgyver tutorial
 
   Serial.println(httpResponseCode); 
   
