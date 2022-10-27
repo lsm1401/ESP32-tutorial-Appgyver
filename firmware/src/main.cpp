@@ -120,12 +120,15 @@ void setup() {
 
 void loop() {
 
-  while(!timeClient.update()) {
-    timeClient.forceUpdate();
-  }
-  // We need to extract date and time
-  formattedDate = timeClient.getFormattedDate();
-  Serial.println(formattedDate);
+//* UPDATE--for Appgyver tutorial
+  while(!timeClient.update()) {                     
+    timeClient.forceUpdate();                     
+  }                                                
+  // We need to extract date and time               
+  formattedDate = timeClient.getFormattedDate();   
+  Serial.println(formattedDate);      
+  //* UPDATE--for Appgyver tutorial
+
   // put your main code here, to run repeatedly:
   if (!capture_image()) {
         Serial.println("Failed capture");
